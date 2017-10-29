@@ -273,7 +273,7 @@ var collapse = '<br>\
 		setCSSRule('.tournaments .tournaments__list .tournaments__item--title').style.borderBottom	= '1px solid #333333';
 		
 		// отключение фильтр в комментариях (все/популярные/новые), в "стримах -> смотреть все" оставляем
-		if (document.location.href.indexOf('https://www.cybersport.ru/streams/game/') == -1 ){removeElementsByClass('tabs tabs--tab1 tabs--filter');}
+		if (document.location.href.indexOf('/streams/game/') == -1 && document.location.href.indexOf('/blog/') == -1){removeElementsByClass('tabs tabs--tab1 tabs--filter');}
 		// скрытие статистики матчей в collapse
 		if (itsSubstrInHref('https://www.cybersport.ru/base/match/group/')){ // заворачиваем статистику в collapse
 			document.body.appendChild(script); 								 // добавлем скрипт в документ
