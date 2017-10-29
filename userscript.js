@@ -207,10 +207,6 @@ var collapse = '<br>\
 // ____________________________________________________________________ //
 	//удаление верхнего заголовка с матчами
 	removeElementsByClass('matchticker matchticker--desktop');
-	//удаление footer
-	removeElementsByClass('footer__center');
-	removeElementsByClass('footer__right');
-	removeElementsByClass('footer__left');
 	//убирание baloon вокруг тегов
 	setCSSForTags('.tag', '#DF7401', '200'); 			// теги
 	setCSSForTags(".post__tag a", '#DF7401', '200'); 	// теги в новостях и etc
