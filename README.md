@@ -11,7 +11,7 @@ User script for http://tampermonkey.net browser addon. Tested in opera (chromium
 * Цветовая схема дневного и ночного режимов переделана в нейтральные серые цвета;
 * Изменено основное меню. Вынесены ссылки [матч], [стримы], [турниры]. Остальные спрятаны в отдельное меню [Новости и Статистика] ввиду их редкого использования или бесполезности. Меню можно изменить под себя (см. переменную menu в скрипте). 
 Для возвращения компоновки по умолчанию, удалите строки:
-```
+``` javascript
 removeElementsByClass('menu__item', 5);
 var content = document.getElementsByClassName('menu')[0].innerHTML;
 document.getElementsByClassName('menu')[0].innerHTML = menu + content;
@@ -26,7 +26,7 @@ document.getElementsByClassName('menu')[0].innerHTML = menu + content;
 * Удален блок "Читайте также", ввиду его бесполезности;
 * В комментариях удален фильтр [Все/Популярные/Новые].
 Для возвращения фильтра удалить строку:
-```
+``` javascript
 if (document.location.href.indexOf('/streams/game/') == -1 && document.location.href.indexOf('/blog/') == -1){removeElementsByClass('tabs tabs--tab1 tabs--filter');}
 ```
 * Убраны цветные овалы тегов в т.ч. и в комментариях;
