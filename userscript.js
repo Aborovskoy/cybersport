@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         cybersport.ru
 // @namespace    https://www.cybersport.ru/
-// @version      0.1
+// @version      0.2
 // @description  cybersport.ru modificator
 // @author       ABorovskoy
 // @match        http*://*.cybersport.ru/*
@@ -294,6 +294,9 @@ var collapse = '<br>\
 		setCSSForTags('.status--godlike', 	'#AEB404', '100');
 		setCSSForTags('.status--over-9000', '#C22323', '100');
 
+		//увеличиваем ширину текста в новостях, блоагх и т.п.
+		document.getElementsByClassName('article article--post-news')[0].style.display 	= 'block';
+		document.getElementsByClassName('article__wrapper ')[0].style.width 			= '100%';
 	}
 
 })();
