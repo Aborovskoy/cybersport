@@ -218,7 +218,7 @@ var collapse = '<br>\
 		setCSSRule('a.revers:visited').style.color	= '#8a795d';//'#9f8170'; // цвет посещенной ссылки
 	}		
 	//настройка основного меню
-	setCSSRule('.header__bg').style.background				= '#353535'; //цвет основного меню
+	setCSSRule('.version--ru .header__bg').style.background	= '#353535'; //цвет основного меню
 	setCSSRule('header .header__wrapper').style.background	= 'inherit'; 
 	setCSSRule('.logo').style.padding						= '6px 20px 2px 0px';
 	setCSSRule('.logo').style.backgroundImage				= '';
