@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         cybersport.ru
 // @namespace    https://www.cybersport.ru/
-// @version      0.2
+// @version      0.3
 // @description  cybersport.ru modificator
 // @author       ABorovskoy
 // @match        http*://*.cybersport.ru/*
@@ -219,6 +219,7 @@ var collapse = '<br>\
 	}		
 	//настройка основного меню
 	setCSSRule('.version--ru .header__bg').style.background	= '#353535'; //цвет основного меню
+     	setCSSRule('header.header .header__wrapper').style.background	= '#353535'; //цвет основного меню
 	setCSSRule('header .header__wrapper').style.background	= 'inherit'; 
 	setCSSRule('.logo').style.padding						= '6px 20px 2px 0px';
 	setCSSRule('.logo').style.backgroundImage				= '';
