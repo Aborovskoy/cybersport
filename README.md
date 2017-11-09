@@ -2,7 +2,7 @@
 Cybersport Design Modification
 User script for http://tampermonkey.net browser addon. Tested in opera (chromium based browser).
 
-### v:0.2
+### v:0.2-0.3
 * Изменен класс заголовка основного меню владельцами сайта (вс)
 * Увеличена ширина текстового блока в новостях /news/ ...
 
