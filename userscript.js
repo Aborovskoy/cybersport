@@ -2,11 +2,15 @@
 // @name         cybersport.ru
 // @namespace    https://www.cybersport.ru/
 // @version      0.3
+// @license	 MIT
 // @description  cybersport.ru modificator
 // @author       ABorovskoy
 // @match        http*://*.cybersport.ru/*
 // @grant        none
 // @run-at       document-end
+// @updateURL    https://raw.githubusercontent.com/Aborovskoy/cybersport/master/userscript.js
+// @downloadURL  https://raw.githubusercontent.com/Aborovskoy/cybersport/master/userscript.js
+
 // ==/UserScript==
 // jshint multistr: true
 
