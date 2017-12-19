@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         cybersport.ru
 // @namespace    https://www.cybersport.ru/
-// @version      0.3
+// @version      0.31
 // @license	 MIT
 // @description  cybersport.ru modificator
 // @author       ABorovskoy
@@ -131,7 +131,7 @@ var collapse = '<br>\
 	  // Делаем объект совместимыми с W3C DOM2 (для IE)
 	  return StyleSheet_makeCompatible(style);
 	}
-	
+
 	function setCSSRule(name){
 	  var rules=getCSSRules();
 	  if (!rules.hasOwnProperty(name)){
@@ -200,12 +200,12 @@ var collapse = '<br>\
         	elements[0].parentNode.removeChild(elements[0]);
     	}
 		return importantNewsBlock.replace(/%newsitems%/g, content);
-		
+
 	}
 
 	function itsSubstrInHref(substr){return document.location.href.indexOf(substr) != -1;}
 
-	
+
 
 // *********************** Глобальные изменения *********************** //
 // ____________________________________________________________________ //
@@ -220,11 +220,11 @@ var collapse = '<br>\
 	setCSSRule('a.revers').style.fontWeight	= '200';
 	if (document.location.href == 'https://www.cybersport.ru/' || itsSubstrInHref('/news') ||  itsSubstrInHref('/articles') || itsSubstrInHref('/interviews') || itsSubstrInHref('/videos') || itsSubstrInHref('/blog') || itsSubstrInHref('/reports/') || itsSubstrInHref('/tags/')){
 		setCSSRule('a.revers:visited').style.color	= '#8a795d';//'#9f8170'; // цвет посещенной ссылки
-	}		
+	}
 	//настройка основного меню
 	setCSSRule('.version--ru .header__bg').style.background	= '#353535'; //цвет основного меню
-     	setCSSRule('header.header .header__wrapper').style.background	= '#353535'; //цвет основного меню
-	setCSSRule('header .header__wrapper').style.background	= 'inherit'; 
+    setCSSRule('header.header .header__wrapper').style.background	= '#353535'; //цвет основного меню
+	setCSSRule('header .header__wrapper').style.background	= 'inherit';
 	setCSSRule('.logo').style.padding						= '6px 20px 2px 0px';
 	setCSSRule('.logo').style.backgroundImage				= '';
 	setCSSRule('.menu').style.margin						= '0px';
@@ -235,13 +235,15 @@ var collapse = '<br>\
 	setCSSRule('.mode-night').style.setProperty('--dark-bg-header-center', 	'#1d1e1a');	//menu
 	setCSSRule('.mode-night').style.setProperty('--dark-reply-bg', 			'#1d1e1a');	//comments reply
 	setCSSRule('.mode-night').style.setProperty('--dark-border-matchticker','#c1c1c1');	//разделитель
-	
-	removeElementsByClass('menu__item', 5); // +2 меню для мобильных гаджетов
+
+	removeElementsByClass('menu__item');
 	var content = document.getElementsByClassName('menu')[0].innerHTML;
 	document.getElementsByClassName('menu')[0].innerHTML = menu + content;
 
-	
-	
+    removeElementsByClass('footer__center');
+    removeElementsByClass('footer__left');
+    removeElementsByClass('footer__right');
+
 	if (document.location.href == 'https://www.cybersport.ru/'){
 	// *********************** Главная страница *********************** //
 	// ________________________________________________________________ //
@@ -252,14 +254,14 @@ var collapse = '<br>\
 		removeElementsByClass('news__item--banner-square');
 		//изменение заголовка "Новости" на "Сегодня"
 		document.getElementsByClassName('title-block')[0].innerHTML = '<p style="color:var(--text); text-transform:none"><strong>Сегодня</strong></p>';
-		
+
 		//удаление телевизора ("важные новости")
 		document.getElementsByClassName('news__item')[0].insertAdjacentHTML('beforebegin', getImportantNews());
-		removeElementsByClass('televizor--desktop');	
-		
+		removeElementsByClass('televizor--desktop');
+
 		changeElementClassByClass('news__list news__list--2 list-unstyled', 				 'news-socials__list list-unstyled sys-content-list');
 		changeElementClassByClass('news__list news__list--3 list-unstyled sys-content-list', 'news-socials__list list-unstyled sys-content-list');
-		
+
 		//скрытие картинки в новостях
 		setCSSRule('.post__preview').style.display = "none";
 		//тюнинг постов (справа от новостей)
@@ -276,7 +278,7 @@ var collapse = '<br>\
 		setCSSRule('.tabs__item').style.borderLeft 				= '1px solid #333333';
 		setCSSRule('.matches__item--title').style.borderBottom	= '1px solid #333333';
 		setCSSRule('.tournaments .tournaments__list .tournaments__item--title').style.borderBottom	= '1px solid #333333';
-		
+
 		// отключение фильтр в комментариях (все/популярные/новые), в "стримах -> смотреть все" оставляем
 		if (document.location.href.indexOf('/streams/game/') == -1 && document.location.href.indexOf('/blog/') == -1){removeElementsByClass('tabs tabs--tab1 tabs--filter');}
 		// скрытие статистики матчей в collapse
