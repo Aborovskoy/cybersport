@@ -2,6 +2,9 @@
 Cybersport Design Modification
 User script for http://tampermonkey.net browser addon. Tested in opera (chromium based browser).
 
+### v:0.4
+* командой cybersport изменена главная страница
+
 ### v:0.31
 * меню чистится полностью (исправлена ошибка приводящаю к стопу скрипта, при отсутстующих активных турнирах)
 * футер удален
