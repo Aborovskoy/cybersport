@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         cybersport.ru
 // @namespace    https://www.cybersport.ru/
-// @version      0.31
+// @version      0.4
 // @license	 MIT
 // @description  cybersport.ru modificator
 // @author       ABorovskoy
@@ -215,9 +215,9 @@ var collapse = '<br>\
 	setCSSForTags('.tag', '#DF7401', '200'); 			// теги
 	setCSSForTags(".post__tag a", '#DF7401', '200'); 	// теги в новостях и etc
 	//настройка ссылок
-	setCSSRule('a').style.color	= '#4169E1'; 			// цвет ссылки
-	setCSSRule('a.revers').style.fontSize	= '14px';
-	setCSSRule('a.revers').style.fontWeight	= '200';
+	setCSSRule('a').style.color	     = '#4169E1'; 			// цвет ссылки
+	setCSSRule('a').style.fontSize	 = '14px';
+	setCSSRule('a').style.fontWeight = '200';
 	if (document.location.href == 'https://www.cybersport.ru/' || itsSubstrInHref('/news') ||  itsSubstrInHref('/articles') || itsSubstrInHref('/interviews') || itsSubstrInHref('/videos') || itsSubstrInHref('/blog') || itsSubstrInHref('/reports/') || itsSubstrInHref('/tags/')){
 		setCSSRule('a.revers:visited').style.color	= '#8a795d';//'#9f8170'; // цвет посещенной ссылки
 	}
@@ -253,22 +253,36 @@ var collapse = '<br>\
 		//удаление пустого баннера
 		removeElementsByClass('news__item--banner-square');
 		//изменение заголовка "Новости" на "Сегодня"
-		document.getElementsByClassName('title-block')[0].innerHTML = '<p style="color:var(--text); text-transform:none"><strong>Сегодня</strong></p>';
+		document.getElementsByClassName('inverse bold')[0].innerHTML = '<strong>Сегодня</strong>';
 
 		//удаление телевизора ("важные новости")
-		document.getElementsByClassName('news__item')[0].insertAdjacentHTML('beforebegin', getImportantNews());
-		removeElementsByClass('televizor--desktop');
+		//document.getElementsByClassName('news__item')[0].insertAdjacentHTML('beforebegin', getImportantNews());
+		removeElementsByClass('featured-block');
 
-		changeElementClassByClass('news__list news__list--2 list-unstyled', 				 'news-socials__list list-unstyled sys-content-list');
-		changeElementClassByClass('news__list news__list--3 list-unstyled sys-content-list', 'news-socials__list list-unstyled sys-content-list');
+        //tabs__content tabs__content--tab1 cs-col-lg-3 cs-col-md-12 cs-col-xs-12
+        //tabs__content tabs__content--tab2 materials-block cs-col-lg-9 cs-col-md-12 cs-col-xs-12
+		//changeElementClassByClass('news__list news__list--2 list-unstyled', 				 'news-socials__list list-unstyled sys-content-list');
+		//changeElementClassByClass('news__list news__list--3 list-unstyled sys-content-list', 'news-socials__list list-unstyled sys-content-list');
 
 		//скрытие картинки в новостях
-		setCSSRule('.post__preview').style.display = "none";
+
+		//setCSSRule('.responsive-object').style.display = "none";
+		//setCSSRule('.post__preview').style.display = "none";
+
+		//тюнинг новостей (слева)
+		setCSSRule('.cs-col-lg-3').style.maxWidth	= '40%';
+		setCSSRule('.cs-col-lg-3').style.flexBasis	= '40%';
+		setCSSRule('.icon-games--20').style.width	= '14px';
+		setCSSRule('.icon-games--20').style.height	= '14px';
+		setCSSRule('.community__discipline').style.paddingTop	= '14px';
 		//тюнинг постов (справа от новостей)
-		setCSSRule('.post').style.flexDirection	= 'inherit';
-		setCSSRule('.post').style.borderColor	= '#c1c1c1';
-		setCSSRule('.post').style.borderWidth	= '0 0 1px 0';
-		setCSSRule('.post').style.borderStyle	= 'solid';
+		setCSSRule('.cs-col-lg-9').style.maxWidth	= '50%';
+		//setCSSRule('.news_news').style.flexDirection	= 'inherit';
+		//setCSSRule('.news_news').style.borderColor	= '#c1c1c1';
+		//setCSSRule('.news_news').style.borderWidth	= '0 0 1px 0';
+		//setCSSRule('.news_news').style.borderStyle	= 'solid';
+
+
 	} else {
 	// *********************** Остальные страницы *********************** //
 	// __________________________________________________________________ //
